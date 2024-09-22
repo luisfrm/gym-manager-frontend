@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { HideEyeIcon, ShowEyeIcon } from "./Icons";
+import { FieldError } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
+
 
 interface InputProps {
 	type: "text" | "email" | "password";
@@ -7,14 +10,18 @@ interface InputProps {
 	placeholder: string;
 	id?: string;
 	name?: string;
+	register?: UseFormRegister<any> | undefined;
+	errors?: FieldError | undefined;
 }
 
 export default function Input({
 	type = "text",
 	id = "",
-	name = "",
+	// name = "",
 	label = "",
 	placeholder = "",
+	register,
+	errors,
 }: InputProps) {
 	const [showPassword, setShowPassword] = useState(false);
 	const [inputType, setInputType] = useState(type);
@@ -35,14 +42,15 @@ export default function Input({
 				htmlFor={id}
 				className="block text-sm font-medium text-gray-700 mb-1"
 			>
-				{label}
+				{label} {errors && (<span className="text-red-700">*This field is required</span>)}
 			</label>
 			<input
 				type={inputType}
+				// name={name}
 				id={id}
-				name={name}
 				placeholder={placeholder}
 				className="w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+				{...(typeof register === 'function' && id ? register(id, {required: true}) : {})}
 			/>
 			{type === "password" && (
 				<button

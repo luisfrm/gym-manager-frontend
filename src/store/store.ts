@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "@/features/api/apiSlice";
-import counterReducer from "@/features/counter/counterSlice";
+import userReducer from "@/features/user/userSlice";
 
 const store = configureStore({
 	reducer: {
-		counter: counterReducer, // A syncron slice
+		user: userReducer,
 		[apiSlice.reducerPath]: apiSlice.reducer, // An asyncron slice
 	},
 	// let's add the middleware needed to RTK Query
