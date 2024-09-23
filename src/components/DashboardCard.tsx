@@ -1,16 +1,11 @@
-type Props = {
-	title: string;
-	icon: JSX.Element;
-	mainInfo: string;
-	subtitle: string;
-};
+import { DashboardCardType } from "@/config/types";
 
 export default function DashboardCard({
 	title,
 	icon,
 	mainInfo,
 	subtitle,
-}: Props) {
+}: DashboardCardType) {
 	return (
 		<div className="rounded-lg border shadow-sm bg-white">
 			<div>

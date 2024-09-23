@@ -11,6 +11,9 @@ export default {
       gridTemplateRows: {
         'sidebar': '64px 1fr',
       },
+      textColor: {
+        'muted-foreground': 'hsl(240 3.8% 46.1%)',
+      },
     },
   },
   plugins: [addDynamicIconSelectors()],

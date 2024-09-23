@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ApiUrl } from "./constants";
+import { logItemsData } from "./mockData";
 
 
 const axiosInstance = axios.create({
@@ -27,5 +28,13 @@ export const verifyToken = async (token: string) => {
     throw error; // Lanzar el error para que pueda ser manejado en el componente
   }
 };
+
+export const getRecentsLogs = () => {
+  return new Promise((resolve)=>{
+    setTimeout(() => {
+      resolve({ status: 200, data: logItemsData });
+    }, 100)
+  })
+}
 
 export default axiosInstance;
