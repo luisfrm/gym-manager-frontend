@@ -1,3 +1,5 @@
+import { addDynamicIconSelectors } from '@iconify/tailwind'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -5,8 +7,11 @@ export default {
   './public/index.html'
 ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        'sidebar': '64px 1fr',
+      },
+    },
   },
-  plugins: [],
+  plugins: [addDynamicIconSelectors()],
 }
-
