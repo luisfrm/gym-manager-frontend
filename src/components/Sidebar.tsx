@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { LeftIcon, RightIcon, HomeIcon, SettingsIcon } from "./Icons";
 import SidebarItem from "./SidebarItem";
+import SidebarHeader from "./SidebarHeader";
+import SidebarContent from "./SidebarContent";
+import { Home, Settings } from "lucide-react";
 
 export default function Sidebar() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -15,19 +17,11 @@ export default function Sidebar() {
 				isSidebarOpen ? "w-64" : "w-16"
 			} grid grid-rows-sidebar`}
 		>
-      <header className={`p-4 flex items-center ${ isSidebarOpen ? "justify-between" : "justify-center" }`}>
-        { isSidebarOpen && <h2 className={`text-2xl font-bold text-gray-800`}>GymPro</h2>}
-        <button type="button" onClick={toggleSidebar}>
-          { 
-          isSidebarOpen ? <LeftIcon />
-          : <RightIcon />
-        }
-        </button>
-      </header>
-      <nav className="flex-1 p-4">
-        <SidebarItem link="/dashboard" icon={<HomeIcon/>} isSidebarOpen={isSidebarOpen} label="Dashboard" />
-        <SidebarItem link="/settings" icon={<SettingsIcon/>} isSidebarOpen={isSidebarOpen} label="Settings" />
-      </nav>
+      <SidebarHeader isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <SidebarContent>
+        <SidebarItem link="/dashboard" icon={<Home/>} isSidebarOpen={isSidebarOpen} label="Dashboard" />
+        <SidebarItem link="/settings" icon={<Settings/>} isSidebarOpen={isSidebarOpen} label="Settings" />
+      </SidebarContent>
     </aside>
 	);
 }

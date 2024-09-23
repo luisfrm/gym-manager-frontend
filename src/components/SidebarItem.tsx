@@ -36,7 +36,7 @@ export default function SidebarItem({
 
 	return (
 		<Link to={link} className="flex cursor-pointer items-center gap-2 justify-start hover:bg-slate-100 rounded-md p-2 w-[100%] h-10`">
-			{icon}{" "}
+			<div className="flex-shrink-0">{icon}</div>
 			<span
 				ref={labelRef}
 				className={`${
