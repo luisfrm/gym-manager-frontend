@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import { ReactNode, useEffect, useState } from "react";
 import { verifyToken } from "@/config/api";
 import Spinner from "@components/Spinner";
+import Template from "@pages/Template";
 
 type ChildrenType = {
 	children: ReactNode;
@@ -47,5 +48,5 @@ export default function ProtectedRouted({ children }: ChildrenType) {
 
 	if (isLoading) return <Spinner />;
 
-	return children;
+	return <Template>{children}</Template>;
 }
