@@ -2,7 +2,7 @@ import { useState } from "react";
 import SidebarItem from "./SidebarItem";
 import SidebarHeader from "./SidebarHeader";
 import SidebarContent from "./SidebarContent";
-import { Home, Settings } from "lucide-react";
+import { Home, Settings, Users } from "lucide-react";
 
 export default function Sidebar() {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -13,13 +13,14 @@ export default function Sidebar() {
 
 	return (
 		<aside
-			className={`bg-white shadow-md transition-all duration-300 ${
+			className={`bg-white shadow-md transition-all duration-300 overflow-hidden ${
 				isSidebarOpen ? "w-64" : "w-16"
 			} grid grid-rows-sidebar`}
 		>
-      <SidebarHeader isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <SidebarHeader isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} title={"GymPro"} />
       <SidebarContent>
         <SidebarItem link="/dashboard" icon={<Home/>} isSidebarOpen={isSidebarOpen} label="Dashboard" />
+        <SidebarItem link="/members" icon={<Users/>} isSidebarOpen={isSidebarOpen} label="Members" />
         <SidebarItem link="/settings" icon={<Settings/>} isSidebarOpen={isSidebarOpen} label="Settings" />
       </SidebarContent>
     </aside>

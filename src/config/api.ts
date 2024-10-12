@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { AxiosRequestHeaders, AxiosResponse } from "axios";
 import { ApiUrl } from "./constants";
-import { logItemsData } from "./mockData";
+import { logItemsData, members } from "./mockData";
 
 
 const axiosInstance = axios.create({
@@ -34,6 +34,22 @@ export const getRecentsLogs = () => {
     setTimeout(() => {
       resolve({ status: 200, data: logItemsData });
     }, 100)
+  })
+}
+
+export const getMembers = (): Promise<AxiosResponse> => {
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve({
+        status: 200,
+        data: members,
+        statusText: 'OK',
+        headers: {},
+        config: {
+          headers: {} as AxiosRequestHeaders
+        }
+      });
+    }, 500)
   })
 }
 

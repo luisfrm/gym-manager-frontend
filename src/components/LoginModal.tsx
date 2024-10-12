@@ -61,7 +61,7 @@ export default function LoginModal() {
 						type="email"
 						id="loginEmail"
 						placeholder="Enter your email"
-            errors={errors.loginEmail}
+						errors={errors.loginEmail}
 					/>
 					<Input
 						register={register}
@@ -69,13 +69,9 @@ export default function LoginModal() {
 						type="password"
 						id="loginPassword"
 						placeholder="Enter your password"
-            errors={errors.loginPassword}
+						errors={errors.loginPassword}
 					/>
-					{!isLoading ? (
-						<Button type="submit" text="Login" />
-					) : (
-						<Button type="button" text="Loading" />
-					)}
+					<Button isLoading={isLoading} type="submit" text="Login" />
 				</form>
 				{isError && (
 					<div>

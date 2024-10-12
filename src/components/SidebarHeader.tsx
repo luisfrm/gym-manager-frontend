@@ -1,11 +1,12 @@
-import { LeftIcon, RightIcon } from "./Icons";
+import { LucideChevronsLeft, LucideChevronsRight } from "lucide-react";
 
 type Props = {
   toggleSidebar: () => void;
   isSidebarOpen: boolean;
+	title: string;
 };
 
-function SidebarHeader({isSidebarOpen, toggleSidebar}: Props) {
+function SidebarHeader({isSidebarOpen, toggleSidebar, title}: Props) {
 	return (
 		<header
 			className={`p-4 flex items-center ${
@@ -13,10 +14,10 @@ function SidebarHeader({isSidebarOpen, toggleSidebar}: Props) {
 			}`}
 		>
 			{isSidebarOpen && (
-				<h2 className={`text-2xl font-bold text-gray-800`}>GymPro</h2>
+				<h2 className={`text-2xl font-bold text-gray-800`}>{title}</h2>
 			)}
 			<button type="button" id="ctaSidebar" onClick={toggleSidebar}>
-				{isSidebarOpen ? <LeftIcon /> : <RightIcon />}
+				{isSidebarOpen ? <LucideChevronsLeft /> : <LucideChevronsRight />}
 			</button>
 		</header>
 	);

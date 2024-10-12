@@ -61,3 +61,23 @@ export const logItemsData: LogItemData[] = [
     time: "5 hours ago"
   }
 ];
+
+export const dashboardCardsData = [
+  {
+    title:"Total Members",
+    mainInfo:"1,234",
+    description:"8% increase from last month",
+    icon: CreditCard,
+    iconProps: {
+      className: "h-5 w-5 text-green-500"
+    },
+  }
+]
+
+export const members = [
+  { id: 1, name: "John Doe", email: "john@example.com", plan: "Premium", joinDate: "2023-01-15" },
+  { id: 2, name: "Jane Smith", email: "jane@example.com", plan: "Basic", joinDate: "2023-02-20" },
+  { id: 3, name: "Mike Johnson", email: "mike@example.com", plan: "Premium", joinDate: "2023-03-10" },
+  { id: 4, name: "Sarah Williams", email: "sarah@example.com", plan: "Basic", joinDate: "2023-04-05" },
+  { id: 5, name: "Chris Brown", email: "chris@example.com", plan: "Premium", joinDate: "2023-05-12" },
+]

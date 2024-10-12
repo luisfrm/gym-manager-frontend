@@ -5,6 +5,7 @@ import ProtectedRouted from "@pages/ProtectedRouted";
 import Register from "@pages/Register";
 import Home from "@pages/Home";
 import Settings from "@pages/Settings";
+import Members from "@pages/Members";
 
 const RoutesConfig = () => {
 	return (
@@ -18,6 +19,14 @@ const RoutesConfig = () => {
 					element={
 						<ProtectedRouted>
 							<Dashboard />
+						</ProtectedRouted>
+					}
+				/>
+				<Route
+					path="/members"
+					element={
+						<ProtectedRouted>
+							<Members />
 						</ProtectedRouted>
 					}
 				/>

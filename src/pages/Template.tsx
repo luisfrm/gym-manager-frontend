@@ -7,7 +7,7 @@ type TemplateProps = {
 
 export default function Template({ children }: TemplateProps) {
 	return (
-		<div className="flex h-screen bg-gray-100 gap-2">
+		<div className="flex h-dvh bg-gray-100 gap-2">
 			<Sidebar />
 			{children}
 		</div>
